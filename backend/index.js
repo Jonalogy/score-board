@@ -30,7 +30,21 @@ app.post('/entries',function(req,res){
   res.json(data);
 });
 
-// app.put()
+app.put('/entries/:id',function(req,res){
+  var toUpdate = req.params.id;
+  var dataUpdate;
+
+
+  for(i=0; i<data.length; i++){
+    if(data[i].id==toUpdate){
+      data[i].name = req.body.name;
+      data[i].score = req.body.score;
+      dataUpdate = data[i];
+    }//END of if()
+  }//END of for()
+
+  res.send(dataUpdate);
+});//END PUT route for edit
 
 app.delete('/entries/:id',function(req,res){
   console.log("id to delete "+req.params.id);
