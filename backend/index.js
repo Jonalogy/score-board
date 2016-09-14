@@ -34,7 +34,6 @@ app.put('/entries/:id',function(req,res){
   var toUpdate = req.params.id;
   var dataUpdate;
 
-
   for(i=0; i<data.length; i++){
     if(data[i].id==toUpdate){
       data[i].name = req.body.name;

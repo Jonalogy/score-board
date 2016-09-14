@@ -98,18 +98,8 @@ function save (id){
     url:'http://localhost:3000/entries/'+id,
     type:'PUT',
     data: updateData
-  }).done(function(data){
-    console.log(data);
-    $('#nameInput'+id).remove();
-    $('#scoreInput'+id).remove();
-    $('#name'+id).text(data.name);
-    $('#score'+id).text(data.score);
-
-    var editButt = $('<button>').attr('type', 'button').attr('id', 'editButt' + id).attr('value', id).text('Edit');
-    $('#saveButt'+id).replaceWith(editButt);
-
-
-    listAll();
-  });
+    }).done(function(data){
+      listAll();
+    });
 
 }//End of save()
