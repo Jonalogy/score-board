@@ -16,6 +16,17 @@ $(document).ready(function(){
 
 
 ////------Function Hoisting-------////
+
+function addNewScore(newDataSend){
+  $.ajax({
+    url: 'http://localhost:3000/entries',
+    type: 'POST',
+    data: newDataSend
+  }).done(function(server_data){
+    listAll(server_data);
+    }
+)}
+
 function listAll(){
   $.get('http://localhost:3000/entries',function(data){
 
